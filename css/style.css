@@ -12,6 +12,7 @@
   --works-text-bg: rgba(33, 150, 243, 0.9);
   --main-font: 'Roboto', sans-serif;
   --accent-font: 'Raleway', sans-serif;
+  --border-color-form: rgba(33, 33, 33, 0.2);
   /* animation */
   --bezier: cubic-bezier(0.4, 0, 0.2, 1);
   --duration: 250ms;
@@ -653,6 +654,105 @@ img {
   background: var(--blue-color);
   border-radius: 50%;
 }
+
+.subscribe {
+  margin-top: 72px;
+  margin-left: auto;
+}
+
+.subscribe .title-section {
+  display: block;
+  margin-bottom: 20px;
+  color: var(--white-color);
+  font-weight: bold;
+  font-size: 14px;
+  text-align: inherit;
+  line-height: inherit;
+  letter-spacing: inherit;
+  text-transform: uppercase;
+}
+
+.form-field {
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.input {
+  display: block;
+  width: 100%;
+  min-height: 40px;
+  padding-left: 42px;
+  padding-right: 42px;
+  background-color: transparent;
+  border: 1px solid var(--border-color-form);
+  border-radius: 4px;
+  outline-color: transparent;
+  cursor: pointer;
+  transition-property: border, outline-color;
+  transition-duration: var(--duration);
+  transition-timing-function: var(--bezier);
+}
+
+.subscribe .input {
+  width: 358px;
+  height: 50px;
+  padding-left: 16px;
+  margin-right: 12px;
+  font-size: 16px;
+  line-height: 1.25;
+  color: var(--white-color);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  outline-color: transparent;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+  transition-property: border, outline-color;
+  transition-duration: var(--duration);
+  transition-timing-function: var(--bezier);
+}
+
+.subscribe .input:focus {
+  outline-color: rgba(255, 255, 255, 0.6);
+}
+
+.subscribe .input:hover {
+  border: 1px solid var(--blue-color);
+}
+
+.subscribe .input::placeholder {
+  font-size: 16px;
+  line-height: 1.25;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
+  width: 200px;
+  height: 50px;
+  border: none;
+  border-radius: 4px;
+  font-family: inherit;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1.875;
+  letter-spacing: 0.06em;
+  cursor: pointer;
+  color: var(--white-color);
+  background-color: var(--blue-color);
+  box-shadow: 0px 4px 4px rgb(0 0 0 / 15%);
+  transition-property: background-color;
+  transition-duration: var(--duration);
+  transition-timing-function: var(--bezier);
+}
+
+.subscribe .icon {
+  margin-left: 10px;
+}
+
 /* footer */
 
 /* portfolio */
@@ -824,40 +924,195 @@ img {
   position: absolute;
   left: 50%;
   top: 50%;
+
   min-width: 528px;
-  min-height: 582px;
+  min-height: 581px;
   transform: translate(-50%, -50%) scale(1);
+  padding: 40px;
+
   transition-property: transform;
   transition-duration: var(--duration);
   transition-timing-function: var(--bezier);
+
   background-color: var(--white-color);
   border-radius: 4px;
   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
     0px 2px 1px rgba(0, 0, 0, 0.2);
 }
 
-.close.button {
+.close-button {
   position: absolute;
+  top: 8px;
+  right: 8px;
+
   display: flex;
   align-items: center;
   justify-content: center;
-  top: 8px;
-  right: 8px;
+  border-radius: 50%;
+
   width: 30px;
   height: 30px;
-  border-radius: 50%;
+
+  cursor: pointer;
   background-color: transparent;
   border: 1px solid rgba(0, 0, 0, 0.1);
 }
 
-.modal-cross {
-  color: var(--black-color);
+.close {
+  fill: var(--black-color);
+
   transition-property: color;
   transition-duration: var(--duration);
   transition-timing-function: var(--bezier);
 }
 
-.modal .button:hover .modal-cross,
-.modal .button:focus .modal-cross {
+.modal .close-button:hover .close,
+.modal .close-button:focus .close {
+  fill: var(--blue-color);
+}
+
+.modal .title {
+  display: block;
+  margin-bottom: 12px;
+
+  font-size: 20px;
+  line-height: 1.15;
+  text-align: center;
+}
+
+.label {
+  display: inline-block;
+  margin-bottom: 4px;
+
+  font-size: 12px;
+  line-height: 1.167;
+  letter-spacing: 0.01em;
+  color: var(--grey-color);
+}
+
+.form-field {
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.modal .icon {
+  position: absolute;
+  left: 12px;
+  fill: var(--main-text-color);
+  pointer-events: none;
+
+  transition-property: color;
+  transition-duration: var(--duration);
+  transition-timing-function: var(--bezier);
+}
+
+.form-field:focus-within .icon,
+.form-field:hover .icon,
+.label:hover + .form-field > .icon {
+  fill: var(--blue-color);
+}
+
+.input {
+  display: block;
+  width: 100%;
+  min-height: 40px;
+  padding-left: 42px;
+  padding-right: 42px;
+
+  background-color: transparent;
+  border: 1px solid var(--border-color-form);
+  border-radius: 4px;
+  outline-color: transparent;
+  cursor: pointer;
+
+  transition-property: border, outline-color;
+  transition-duration: var(--duration);
+  transition-timing-function: var(--bezier);
+}
+
+.form-text {
+  margin: 0;
+  padding: 0;
+  color: var(--grey-color);
+}
+
+.input .form-text {
+  padding: 11px 16px;
+  resize: none;
+  margin-bottom: 20px;
+
+  letter-spacing: 0.01em;
+}
+
+.input.form-text::placeholder {
+  color: rgba(117, 117, 117, 0.5);
+}
+
+.input:hover {
+  border: 1px solid var(--blue-color);
+}
+
+.input:focus {
+  outline-color: var(--blue-color);
+}
+
+.agreement {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+
+.check {
+  color: transparent;
+  border: 2px solid var(--main-text-color);
+  border-radius: 2px;
+  cursor: pointer;
+
+  transition-property: color, background-color, border;
+  transition-duration: var(--duration);
+  transition-timing-function: var(--bezier);
+}
+
+.checkbox:checked + .check {
+  color: var(--white-color);
+  background-color: var(--blue-color);
+  border: none;
+}
+
+.checkbox:focus + .check,
+.checkbox:hover + .check {
+  border-color: var(--blue-color);
+}
+
+.hide {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+
+.custom-checkbox {
+  display: flex;
+  align-items: center;
+  margin-right: 8px;
+}
+
+.agreement .form-text {
+  margin-right: 0.25em;
+  line-height: 1.714;
+}
+
+.agreement .link {
+  line-height: 1.714;
   color: var(--blue-color);
+  text-decoration-line: underline;
 }
